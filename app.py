@@ -1,3 +1,4 @@
+from waitress import serve
 from flask import Flask, jsonify, request
 import yfinance as yf
 
@@ -15,4 +16,4 @@ def get_data():
         return ({"error": "Invalid Stock Symbol/Unable to fetch data"}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host="0.0.0.0", port=5000)
